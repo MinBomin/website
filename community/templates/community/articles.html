@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+</head>
+<body>
+    <h1>Articles Page</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'articles:articles_index' %}">Articles Home</a></li>
+            <li><a href="{% url 'articles:add_article' %}">Add Article</a></li>
+            <li><a href="{% url 'articles:my_articles' %}">My Articles</a></li>
+        </ul>
+    </nav>
+
+    <!-- 나머지 콘텐츠 -->
+</body>
+</html>

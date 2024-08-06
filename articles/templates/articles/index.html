@@ -1,0 +1,59 @@
+{% extends 'community/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    h1 {
+        font-size: 2.5em; /* 제목 크기 */
+        font-weight: bold; /* 제목 두께 */
+        margin-bottom: 20px; /* 제목 아래 여백 */
+        text-align: center; /* 제목 가운데 정렬 */
+        color: #333; /* 제목 색상 */
+    }
+
+    .greeting {
+        font-size: 1.5em; /* 인사말 크기 */
+        font-weight: bold; /* 인사말 두께 */
+        margin-bottom: 15px; /* 인사말 아래 여백 */
+        text-align: center; /* 인사말 가운데 정렬 */
+        color: #555; /* 인사말 색상 */
+    }
+
+    .link-container {
+        text-align: center; /* 링크 가운데 정렬 */
+        margin-top: 20px; /* 위 여백 */
+    }
+
+    .link-container a {
+        display: inline-block; /* 블록 형태로 링크 표시 */
+        font-size: 1.2em; /* 링크 크기 */
+        font-weight: bold; /* 링크 두께 */
+        color: #007bff; /* 링크 색상 */
+        text-decoration: none; /* 링크 밑줄 제거 */
+        padding: 10px 20px; /* 패딩 추가 */
+        border: 2px solid #007bff; /* 링크 테두리 */
+        border-radius: 5px; /* 모서리 둥글게 */
+        transition: background-color 0.3s, color 0.3s; /* 호버 효과 부드럽게 */
+    }
+
+    .link-container a:hover {
+        background-color: #007bff; /* 호버 시 배경색 */
+        color: white; /* 호버 시 글자색 */
+    }
+</style>
+
+<h1>기사 목록</h1>
+
+{% if user.is_authenticated %}
+    <div class="greeting">안녕하세요, {{ user.username }}님</div>
+    <div class="link-container">
+        <a href="{% url 'articles:article-my' %}">내가 쓴 기사 목록으로 가기</a>
+        <br>
+        <a href="{% url 'articles:add_article' %}">새 기사 추가하기</a>
+    </div>
+{% else %}
+    <div class="greeting">로그인해주세요.</div>
+{% endif %}
+
+<!-- 기사 목록을 표시할 부분 -->
+{% endblock %}

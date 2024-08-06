@@ -1,0 +1,15 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Write</title>
+</head>
+<body>
+    <!-- 기존에 생성한 모델을 토대로 폼 생성 -->
+    <form action="{% url 'write' %}" method="post">  <!-- URL 이름을 사용하여 action 설정 -->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">저장</button>  <!-- 'button' 태그 오타 수정 -->
+    </form>
+</body>
+</html>

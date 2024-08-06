@@ -1,0 +1,24 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>사이트 제목</title>
+    <!-- 기타 메타 태그 및 CSS -->
+</head>
+<body>
+    <header>
+        {% if user.is_authenticated %}
+            <p>안녕하세요, {{ user.username }}님</p>  <!-- 로그인 후 사용자 이름 표시 -->
+            <a href="{% url 'community:logout' %}">로그아웃</a>  <!-- 로그아웃 링크 -->
+        {% else %}
+            <a href="{% url 'community:login' %}">로그인</a>
+        {% endif %}
+    </header>
+    
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

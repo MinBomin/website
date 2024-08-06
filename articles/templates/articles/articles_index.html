@@ -1,0 +1,13 @@
+{% load static %}
+{% load url from future %}
+
+{% extends 'community/base.html' %}
+
+{% block content %}
+<h2>새 기사 추가</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">추가</button>
+</form>
+{% endblock %}

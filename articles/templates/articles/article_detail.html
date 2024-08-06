@@ -1,0 +1,85 @@
+{% extends 'community/base.html' %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif; /* 기본 폰트 설정 */
+        background-color: #f4f4f4; /* 배경색 */
+        padding: 20px; /* 여백 */
+    }
+
+    h1 {
+        font-size: 2.5em; /* 제목 크기 */
+        text-align: center; /* 제목 가운데 정렬 */
+        color: #333; /* 제목 색상 */
+        margin-bottom: 20px; /* 제목 아래 여백 */
+    }
+
+    .article-details {
+        background-color: white; /* 기사 내용 배경색 */
+        padding: 20px; /* 내부 여백 */
+        border-radius: 8px; /* 모서리 둥글게 */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+        max-width: 800px; /* 최대 너비 */
+        margin: 0 auto; /* 가운데 정렬 */
+    }
+
+    p {
+        font-size: 1.2em; /* 텍스트 크기 */
+        line-height: 1.5; /* 줄 높이 */
+        color: #555; /* 텍스트 색상 */
+        margin-bottom: 15px; /* 아래 여백 */
+    }
+
+    strong {
+        color: #333; /* 강조 텍스트 색상 */
+    }
+
+    em {
+        color: #777; /* 이탤릭 텍스트 색상 */
+        font-size: 1em; /* 이탤릭 텍스트 크기 */
+    }
+
+    .back-link {
+        display: block; /* 블록 형태로 */
+        text-align: center; /* 가운데 정렬 */
+        margin-top: 20px; /* 위 여백 */
+        font-size: 1.2em; /* 링크 크기 */
+        color: #007bff; /* 링크 색상 */
+        text-decoration: none; /* 링크 밑줄 제거 */
+        font-weight: bold; /* 링크 두께 */
+        transition: color 0.3s; /* 호버 효과 부드럽게 */
+    }
+
+    .back-link:hover {
+        color: #0056b3; /* 호버 시 색상 변경 */
+    }
+
+    .logout-button {
+        display: inline-block; /* 블록 형태로 */
+        background-color: #dc3545; /* 버튼 배경색 (레드) */
+        color: white; /* 글자색 */
+        padding: 10px 20px; /* 패딩 */
+        font-size: 1.2em; /* 폰트 크기 */
+        font-weight: bold; /* 두께 */
+        border: none; /* 테두리 제거 */
+        border-radius: 5px; /* 모서리 둥글게 */
+        text-decoration: none; /* 밑줄 제거 */
+        transition: background-color 0.3s, transform 0.3s; /* 호버 효과 부드럽게 */
+        margin-top: 20px; /* 위 여백 */
+        text-align: center; /* 가운데 정렬 */
+    }
+
+    .logout-button:hover {
+        background-color: #c82333; /* 호버 시 배경색 */
+        transform: scale(1.05); /* 호버 시 약간 커짐 */
+    }
+</style>
+<div class="article-details">
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+    <p><strong>작성자 이메일:</strong> {{ article.email }}</p>
+    <p><em>작성일: {{ article.created_at }}</em></p>
+    <a class="back-link" href="{% url 'articles:my_articles' %}">내가 쓴 기사 목록으로 돌아가기</a>
+</div>
+{% endblock %}
