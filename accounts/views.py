@@ -39,3 +39,7 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'community/login.html', {'form': form})
 
+
+def article_list(request):
+    # 여기에 로직 추가
+    return render(request, 'accounts/article_list.html') 
